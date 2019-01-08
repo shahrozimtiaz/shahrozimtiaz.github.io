@@ -1,0 +1,77 @@
+C011 000 jmp     outer-loop
+0005 001 max     dw 5	        int max = 5             //Name:ShahrozImtiaz
+0000 002 tempR   dw 0	        int tempR               //Email ID:si6rf
+0000 003 tempL   dw 0	        int tempL               //File Name:bubblesort.ibcm
+0000 004 temp    dw 0	        int temp                //Date:10/30/2018
+0000 005 zero    dw 0	        int zero = 0
+0001 006 one     dw 1	        int one = 1
+0000 007 i       dw 0	        int i = 0
+0004 008 j       dw 4	        int j = 4
+0048 009 a       dw 048	        int a = 048 address of num1
+3000 00A loadIt  dw 3000	    loadIt = 3000
+4000 00B storeIt dw 4000        storeIt = 4000
+B000 00C num1    dw 5	        a[0]=5
+B000 00D num2    dw 7	        a[1]=7
+B000 00E num3    dw 3	        a[2]=3   MOVED THESE VALUES TO BOTTOM, THUS THE "B"
+B000 00F num4    dw 6	        a[3]=6
+B000 010 num5    dw 1	        a[4]=1
+3001 011 outer-loop load max    if(i>=max) exit, check for index out of bounds
+6007 012	sub i                             .
+E047 013	jmpl exit                         .
+D047 014	jmpe exit                         .
+3008 015 inner-loop load j      if(j<=i) break loop, in which i++ and j=4
+6007 016	sub i                             .
+E040 017	jmpl break                        .
+D040 018	jmpe break                        . 
+300A 019	load loadIt         retrieve a[j] and make tempR=a[j]
+5009 01A	add a                             .
+5008 01B	add j                             .
+401D 01C	store doit                        .
+0000 01D	do it                             .
+4002 01E	store tempR                       .
+301D 01F	load doit           retrieve a[j-1] and make tempL=a[j-1]
+6006 020	sub one                           .
+4022 021	store doit2                       .
+0000 022	doit2                             .
+4003 023	store tempL                       .
+3002 024	load tempR          if(a[j]<a[j-1]), then swap the two
+6003 025	sub tempL                         .
+E02B 026	jmpl swap                         .
+3008 027	load j              else j-- and continue
+6006 028	sub one                           .
+4008 029    store j                           .
+C015 02A	jmp inner-loop      continue
+3002 02B swapload tempR         tempR<->tempL...a[j]<->a[j-1] swap
+4004 02C	store temp                        .
+3003 02D	load tempL                        .
+4002 02E	store tempR                       .
+3004 02F	load temp                         .
+4003 030	store tempL                       .
+3009 031	load a              preparing to make a[j]=tempL 
+5008 032	add j                             .
+500B 033	add storeIt                       .
+4036 034	store doit3                       .
+3002 035	load tempR                        .
+0000 036	doit3               a[j]=tempL 
+3036 037    load doit3          preparing to make a[j-1]=tempR
+6006 038	sub one                           .
+403B 039	store doit4                       .
+3003 03A	load tempL                        .
+0000 03B	doit4               a[j-1]=tempR
+3008 03C	load j              j--
+6006 03D	sub one                           .
+4008 03E    store j                           .
+C015 03F	jmp inner-loop      continue
+3007 040 break load i           i++
+5006 041	add one                           .
+4007 042	store i                           .
+3001 043	load max                          .
+6006 044	sub one                           .
+4008 045	store j             j=4
+C011 046	jmp outer-loop      continue
+0000 047 exit halt
+0005 048 num1    dw 5	        a[0]=5
+0007 049 num2    dw 7	        a[1]=7
+0003 04A num3    dw 3	        a[2]=3
+0006 04B num4    dw 6	        a[3]=6
+0001 04C num5    dw 1	        a[4]=1
