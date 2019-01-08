@@ -9,7 +9,3 @@ while(true){
 		password = prompt("What is the password?");
 	}
 }
-// var hotText = 'Youtube tutorial on JavaScript'
-// var URL = "https://www.youtube.com/watch?v=48rz8udZBmQ"
-
-// document.write("Click to view " + hotText.link(URL))
