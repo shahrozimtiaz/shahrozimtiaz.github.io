@@ -1,6 +1,0 @@
-//Name:Shahroz Imtiaz
-//Email ID:si6rf
-//File Name:difficulties.txt
-//Date:9/18/2018
-
-I didn't encounter too many difficulties while doing this lab. The two I did encounter though were a pain. The first was figuring out which classes needed to be friends with my Stack class. Luckily, I remembered from lecture that my professor said you make classes your friends if you want to give them access to your private information like you would a real friend. This helped me navigate through the linked list classes and added Stack as a friend where necessary. The second difficulty I encountered was really annoying... For some reason my List.cpp got converted to an executable and my ListItr.cpp completely vanished. I searched all around my computer to find it, but it seemed to have just vanished... I don't know if it was something I did in the terminal (slip of a button or name) or something else. But to fix it, I changed the exicutable back to .cpp and grabbed my backup ListItr.cpp from my lab02 folder.

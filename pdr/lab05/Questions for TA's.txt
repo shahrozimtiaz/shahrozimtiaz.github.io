@@ -1,4 +1,0 @@
-Pre-lab:
-	1)Do I need to call cleanTree()?
-In-lab:
-	1)Is it okay to use an int to keep track of the number of Nodes in tree? 
