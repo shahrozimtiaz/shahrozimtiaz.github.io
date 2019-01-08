@@ -1,11 +1,11 @@
 var password = prompt("What is the password?");
 
 while(true){
-	if(password == "pass2018"){
+	if(password == "p1"){
 		document.write("Cool! You're in.")
 		break;
 	}
 	else{
-		password = prompt("What is the password?");
+		password = prompt("Wrong. What is the password?");
 	}
 }
