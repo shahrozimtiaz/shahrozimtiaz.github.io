@@ -1,19 +1,15 @@
-alert("Hello World");
-document.write("Welcome:) <br>");
-var vistorAge = prompt("What is your age?");
+var password = prompt("What is the password?");
 
-document.write("You're " + vistorAge + " years old. <br>");
+while(true){
+	if(password = "password2018"){
+		document.write("Cool! You're in")
+		break;
+	}
+	else{
+		password = prompt("What is the password?");
+	}
+}
+// var hotText = 'Youtube tutorial on JavaScript'
+// var URL = "https://www.youtube.com/watch?v=48rz8udZBmQ"
 
-if(parseInt(vistorAge) == 20){
-	document.write("Cool! we're the same age. <br>")
-}
-else if(parseInt(vistorAge) < 20){
-	document.write("Cool! you're younger than me. <br>")
-}
-else{
-	document.write("Cool! you're older than me. <br>")
-}
-var hotText = 'Youtube tutorial on JavaScript'
-var URL = "https://www.youtube.com/watch?v=48rz8udZBmQ"
-
-document.write("Click to view " + hotText.link(URL))
+// document.write("Click to view " + hotText.link(URL))
