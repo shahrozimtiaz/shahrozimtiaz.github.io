@@ -4,6 +4,8 @@ window.onload=function() {
 	canv=document.getElementById("gc");
 	ctx=canv.getContext("2d");
 	document.addEventListener("keydown",keyPush);
+	image = new Image;
+	image.src="apple.jpg"
 	timer = setInterval(game,100);
 }
 food = [Math.floor(Math.random()*20)*20, Math.floor(Math.random()*20)*20];
@@ -28,7 +30,7 @@ function game(){
 	ctx.font = "14px Georgia";
 	ctx.fillText("Shahroz Imtiaz ",285,392);
 	ctx.fillStyle="red";
-	ctx.fillRect(food[0],food[1],20,20);
+	ctx.drawImage(image, food[0],food[1],20,20);
 	if(snake[0][0]>380 || snake[0][0]<0 || snake[0][1]>380 || snake[0][1]<0 ){
 		clearInterval(timer);
 		alert("Game Over");
