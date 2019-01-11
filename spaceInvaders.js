@@ -20,7 +20,8 @@ enemyFire=false;
 level=1;
 score = 0;
 lives = 3;
-var map=[];
+speed=[];
+map=[];
 function game(){
 	ctx.fillStyle="black";
 	ctx.fillRect(0,0,canv.width,canv.height);
@@ -31,22 +32,23 @@ function game(){
 	ctx.fillText("Shahroz Imtiaz",285,392);
 	ctx.font = "32px Georgia";
 	ctx.fillText("Space Invaders",90,120);
-	if(lives==0){
+	if(lives==0){//dead
 		clearInterval(timer);
 		alert("Game Over");
 	}
-	for(var i=0;i<invaders.length;i++){
+	for(var i=0;i<invaders.length;i++){//invaders landed
 		if(invaders[i][1]>=380){
 			invaders.splice(j,1);
 			lives--;
 		}
 	}
-	for(var i=0;i<cannonBalls.length;i++){
+	for(var i=0;i<cannonBalls.length;i++){//shot invader
 		for(var j=0;j<invaders.length;j++){
 			if(((invaders[j][0]-5)+25)-cannonBalls[i][0]<=25 && ((invaders[j][0]-5)+25)-cannonBalls[i][0]>=0 && ((invaders[j][1]-5)+25)-cannonBalls[i][1]<=25 && ((invaders[j][1]-5)+25)-cannonBalls[i][1]>=0){
 				ctx.fillStyle="black";
 				ctx.fillRect(invaders[j][0],invaders[j][1],20,20);
 				invaders.splice(j,1);
+				speed.splice(j,1);
 				cannonBalls.splice(i,1);
 				score++;
 				if(score%5==0){
@@ -55,33 +57,31 @@ function game(){
 			}
 		}
 	}
-	for(var i=0;i<enemyCannonBalls.length;i++){
+	for(var i=0;i<enemyCannonBalls.length;i++){//invader shot you
 		if(((shooter[0]-5)+45)-enemyCannonBalls[i][0]<=45 && ((shooter[0]-5)+40)-enemyCannonBalls[i][0]>=0 && ((shooter[1]-5)+45)-enemyCannonBalls[i][1]<=45 && ((shooter[1]-5)+45)-enemyCannonBalls[i][1]>=0){
 			lives--;
 			enemyCannonBalls.splice(i,1);
 		}
 	}
-	if(level==3){
+	if(level==3){//level reset
 		enemyFire = true;
 		level=1;
 	}
-	for(var i=0;i<invaders.length;i++){
+	for(var i=0;i<invaders.length;i++){//invader moves down
 		ctx.fillStyle="black";
 		ctx.fillRect(invaders[i][0],invaders[i][1],20,20);
-		invaders[i][1]=invaders[i][1]+3;
+		invaders[i][1]=invaders[i][1]+speed[i];
 	}
-	if(invaders.length < level){
+	if(invaders.length < Math.random()*2){//create invader
 		for(var i=1;i<=level;i++){
 			invader();
 			invader();
 		}
 	}
-	for(var i=0;i<invaders.length;i++){
-		// ctx.fillStyle="lime";
-		// ctx.fillRect(invaders[i][0],invaders[i][1],20,20);
+	for(var i=0;i<invaders.length;i++){//draw invader
 		ctx.drawImage(image, invaders[i][0],invaders[i][1],20,20);
 	}
-	for(var i=0;i<cannonBalls.length;i++){
+	for(var i=0;i<cannonBalls.length;i++){//move cannonball up
 		ctx.fillStyle="black";
 		ctx.fillRect(cannonBalls[i][0],cannonBalls[i][1],5,5);
 		cannonBalls[i][1]=cannonBalls[i][1]-6;
@@ -89,7 +89,7 @@ function game(){
 			cannonBalls.splice(i,1);
 		}
 	}
-	for(var i=0;i<enemyCannonBalls.length;i++){
+	for(var i=0;i<enemyCannonBalls.length;i++){//move enemy cannonball down
 		ctx.fillStyle="black";
 		ctx.fillRect(enemyCannonBalls[i][0],enemyCannonBalls[i][1],5,5);
 		enemyCannonBalls[i][1]=enemyCannonBalls[i][1]+6;
@@ -97,19 +97,21 @@ function game(){
 			enemyCannonBalls.splice(i,1);
 		}
 	}
-	if(enemyFire){
+	if(enemyFire){//enemy will fire
 		for(var i=0;i<invaders.length;i++){
 			var ball=[invaders[i][0]+10,invaders[i][1]+20];
 			enemyCannonBalls.push(ball);
 		}
 		enemyFire=false;
 	}
-	if(fire){
+	if(fire && cannonBalls.length<17){//you will fire
 		var ball=[cannon[0],cannon[1]];
 		cannonBalls.push(ball);
 		fire=false;
+	}else{
+		fire==false;
 	}
-	if(dir=="left"){
+	if(dir=="left"){//move player left
 		if(shooter[0]-10>=0){
 			ctx.fillStyle="black";
 			ctx.fillRect(shooter[0],shooter[1],40,10);
@@ -119,7 +121,7 @@ function game(){
 			dir="";
 		}
 	}
-	else if(dir=="right"){
+	else if(dir=="right"){//move player right
 		if(shooter[0]+40+10<=400){
 			ctx.fillStyle="black";
 			ctx.fillRect(shooter[0],shooter[1],40,10);
@@ -130,18 +132,18 @@ function game(){
 		}
 	}
 	ctx.fillStyle="white";
-	ctx.fillRect(shooter[0],shooter[1],40,10);
-	ctx.fillRect(cannon[0],cannon[1],6,8);
-	for(var i=0;i<cannonBalls.length;i++){
+	ctx.fillRect(shooter[0],shooter[1],40,10);//draw player
+	ctx.fillRect(cannon[0],cannon[1],6,8);//draw cannon
+	for(var i=0;i<cannonBalls.length;i++){//draw cannon balls
 		ctx.fillStyle="white";
 		ctx.fillRect(cannonBalls[i][0],cannonBalls[i][1],5,5);
 	}
-	for(var i=0;i<enemyCannonBalls.length;i++){
+	for(var i=0;i<enemyCannonBalls.length;i++){//draw enemy cannon balls
 		ctx.fillStyle="red";
 		ctx.fillRect(enemyCannonBalls[i][0],enemyCannonBalls[i][1],5,5);
 	}
 }
-function keyPush(event){
+function keyPush(event){//keypress
 	map[event.keyCode] = event.type == 'keydown';
 	if(map[32] && map[37]){
 		fire=true;
@@ -161,8 +163,9 @@ function keyPush(event){
 		dir="right";
 	}
 }
-function invader(){
+function invader(){//invader
 	var x = Math.floor(Math.random()*360);
 	inv=[x,0];
 	invaders.push(inv);
+	speed.push(Math.random()*4+1);
 }
