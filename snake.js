@@ -4,8 +4,8 @@ window.onload=function() {
 	canv=document.getElementById("gc");
 	ctx=canv.getContext("2d");
 	document.addEventListener("keydown",keyPush);
-	image = new Image;
-	image.src="apple.jpg"
+	image = new Image();
+	image.src="apple.jpg";
 	timer = setInterval(game,100);
 }
 food = [Math.floor(Math.random()*20)*20, Math.floor(Math.random()*20)*20];
