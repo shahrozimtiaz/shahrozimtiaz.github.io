@@ -1,3 +1,5 @@
+//Shahroz Imtiaz
+//1/10/2019
 window.onload=function() {
 	canv=document.getElementById("gc");
 	ctx=canv.getContext("2d");
