@@ -79,7 +79,9 @@ function game(){
 	for(var i=0;i<invaders.length;i++){
 		// ctx.fillStyle="lime";
 		// ctx.fillRect(invaders[i][0],invaders[i][1],20,20);
-		ctx.drawImage(image, invaders[i][0],invaders[i][1],20,20);
+		image.onload= function(){
+			ctx.drawImage(image, invaders[i][0],invaders[i][1],20,20);
+		}
 	}
 	for(var i=0;i<cannonBalls.length;i++){
 		ctx.fillStyle="black";
