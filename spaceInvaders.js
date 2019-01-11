@@ -4,7 +4,7 @@ window.onload=function(){
 	canv=document.getElementById("gc");
 	ctx=canv.getContext("2d");
 	image = new Image();
-	image.src="invader.jpg";
+	image.src="/invader.jpg";
 	document.addEventListener("keydown",keyPush);
 	document.addEventListener("keyup",keyPush);
 	timer = setInterval(game,100);
