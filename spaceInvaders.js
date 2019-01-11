@@ -3,6 +3,8 @@
 window.onload=function(){
 	canv=document.getElementById("gc");
 	ctx=canv.getContext("2d");
+	image = new Image();
+	image.src="invader.jpg";
 	document.addEventListener("keydown",keyPush);
 	document.addEventListener("keyup",keyPush);
 	timer = setInterval(game,100);
@@ -77,11 +79,7 @@ function game(){
 	for(var i=0;i<invaders.length;i++){
 		// ctx.fillStyle="lime";
 		// ctx.fillRect(invaders[i][0],invaders[i][1],20,20);
-		image = new Image();
-		image.onload= function(){
-			ctx.drawImage(image, invaders[i][0],invaders[i][1],20,20);
-		}
-		image.src="invader.jpg";
+		ctx.drawImage(image, invaders[i][0],invaders[i][1],20,20);
 	}
 	for(var i=0;i<cannonBalls.length;i++){
 		ctx.fillStyle="black";
