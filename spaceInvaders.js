@@ -4,6 +4,7 @@ window.onload=function(){
 	canv=document.getElementById("gc");
 	ctx=canv.getContext("2d");
 	document.addEventListener("keydown",keyPush);
+	document.addEventListener("keyup",keyPush);
 	timer = setInterval(game,100);
 }
 shooter = [180,380];
@@ -14,6 +15,7 @@ dir="";
 fire=false;
 level=1;
 score = 0;
+var map=[];
 function game(){
 	ctx.fillStyle="black";
 	ctx.fillRect(0,0,canv.width,canv.height);
@@ -103,14 +105,22 @@ function game(){
 	}
 }
 function keyPush(event){
-	var keys = []
-	if(event.keyCode==32){
+	map[event.keyCode] = event.type == 'keydown';
+	if(map[32] && map[37]){
 		fire=true;
-	}
-	if(event.keyCode==37){
 		dir="left";
 	}
-	else if(event.keyCode==39){
+	else if(map[32] && map[39]){
+		fire=true;
+		dir="right";
+	}
+	else if(map[32]){
+		fire=true;
+	}
+	else if(map[37]){
+		dir="left";
+	}
+	else if(map[39]){
 		dir="right";
 	}
 }
