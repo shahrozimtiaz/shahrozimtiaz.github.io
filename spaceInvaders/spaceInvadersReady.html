@@ -8,7 +8,7 @@ window.onload=function(){
 	image = new Image();
 	image.src="invader.jpg";
 	document.addEventListener("keydown",keyPush);
-	document.addEventListener("keyup",keyPush);
+	document.addEventListener("keyup",keyLift);
 	timer = setInterval(game,100);
 }
 shooter = [180,380];
@@ -24,12 +24,15 @@ score = 0;
 lives = 3;
 speed=[];
 map=[];
+balls=17;
 function game(){
 	ctx.fillStyle="black";
 	ctx.fillRect(0,0,canv.width,canv.height);
+	balls=17-cannonBalls.length;
 	ctx.fillStyle="white";
 	ctx.font = "14px Georgia";
 	ctx.fillText("Score: " + score, 0, 11);
+	ctx.fillText("Amno: " + balls, 0, 392);
 	ctx.fillText("Lives: " + lives, 350, 11);
 	ctx.fillText("Shahroz Imtiaz",285,392);
 	ctx.font = "32px Georgia";
@@ -146,7 +149,7 @@ function game(){
 	}
 }
 function keyPush(event){//keypress
-	map[event.keyCode] = event.type == 'keydown';
+	map[event.keyCode] = true;
 	if(map[32] && map[37]){
 		fire=true;
 		dir="left";
@@ -164,6 +167,9 @@ function keyPush(event){//keypress
 	else if(map[39]){
 		dir="right";
 	}
+}
+function keyLift(event){
+	map[event.keyCode]=false;
 }
 function invader(){//invader
 	var x = Math.floor(Math.random()*360);
