@@ -1,0 +1,182 @@
+/*
+ * Shahroz Imtiaz
+ * This program tells the user the wall area, floor area, the cost to paint the walls, and it tells the user which flooring option is affordable based on user budget.
+ */
+
+
+package homework3;
+
+import java.util.Scanner;
+
+public class Homework3 {
+
+	public static void main(String[] args) 
+	{
+		Scanner input = new Scanner(System.in);
+
+		//Declaring variables 
+		double numDoors,height,costPreference, costLinoleumTile, costCarpet, costHardwood, costCeramicTile,costWall,wallArea, floorArea,length,width;
+		double ceramicTile,hardwood,carpet,linoleumTile, preference, budget,doorWidth,doorHeight,doorArea,wallPrice;
+		double numWindows,windowWidth,windowHeight, windowArea,numBookSelves,bookShelfLength,bookShelfWidth,bookShelfHeight,bookShelfFloorArea,bookShelfWallArea;
+		
+		ceramicTile = 4;
+		hardwood = 3;   //assigning price per Sqft
+		carpet = 2;
+		linoleumTile = 1; 
+		
+		//Defining variables
+		
+		length = input.nextDouble();   //****INPUT****
+		width = input.nextDouble();//****INPUT****
+		height = input.nextDouble();//****INPUT****
+        numDoors = input.nextDouble();//****INPUT****
+		
+		doorArea=0;
+		for(int i=1; i<=numDoors;i++) //assigns values for door width and height
+		{
+			doorWidth = input.nextDouble();//****INPUT****
+			doorHeight = input.nextDouble();//****INPUT****
+			
+			doorArea += doorAreaMethod(doorWidth,doorHeight); 	
+		}
+
+
+		
+		numWindows = input.nextDouble();//****INPUT****
+		
+		windowArea=0;
+		for(int i=1; i<=numWindows;i++) //assigns values for window width and height
+		{
+			windowWidth = input.nextDouble();//****INPUT****
+			windowHeight = input.nextDouble();//****INPUT****
+			
+			windowArea += windowAreaMethod(windowWidth,windowHeight); 	
+		}
+		
+	    numBookSelves = input.nextDouble();//****INPUT****
+		
+		bookShelfFloorArea=0;
+		bookShelfWallArea=0;
+		for(int i=1; i<=numBookSelves;i++) //assigns values for Bookshelf length, width, and height
+		{
+			bookShelfLength = input.nextDouble();//****INPUT****
+			bookShelfHeight = input.nextDouble();//****INPUT****
+			bookShelfWidth = input.nextDouble();//****INPUT****
+			
+			bookShelfFloorArea += bookshelfFloorAreaMethod(bookShelfLength,bookShelfWidth); 	
+			bookShelfWallArea += bookshelfWallAreaMethod(bookShelfLength, bookShelfHeight); 
+		}
+
+		wallArea = (((2*(length*height))+(2*(width*height)))-windowArea-doorArea-bookShelfWallArea); //calculating wall area
+		floorArea = (length*width)-bookShelfFloorArea;  //calculating floor area
+		
+		System.out.println("Total Wall Area: " + wallArea);
+		
+		wallPrice = input.nextDouble();//****INPUT****
+		
+		costWall = wallArea*wallPrice;
+		
+		System.out.println("The walls will cost: $" + costWall);
+		System.out.println("Total Floor Area: " + floorArea);
+		
+		costLinoleumTile =(linoleumTile)*(floorArea);
+		costCarpet =(carpet)*(floorArea);                   //cost of flooring
+		costHardwood =(hardwood)*(floorArea);
+		costCeramicTile =(ceramicTile)*(floorArea);
+		
+		preference = input.nextDouble();//****INPUT****
+		budget = input.nextDouble();//****INPUT****
+		
+		switch((int)preference)
+		{
+		case 0:
+		case 1: costPreference=costCeramicTile;
+				if(budget-costPreference>=0)  //checks for affordability of Cermaic Tile
+				{
+					System.out.println("Ceramic Tile is affordable");
+					System.out.println("The floor will cost: $" + costPreference);
+					break;
+				}
+		
+		case 2: costPreference=costHardwood;
+			if(budget-costPreference>=0)   //checks for affordability of Hardwood
+			{
+				System.out.println("Hardwood is affordable");
+				System.out.println("The floor will cost: $" + costPreference);
+				break;
+			}
+
+		case 3: costPreference=costCarpet; 
+			if(budget-costPreference>=0)   //checks for affordability of Carpet
+			{ 
+				System.out.println("Carpet is affordable");
+				System.out.println("The floor will cost: $" + costPreference);
+				break;
+			}	
+		case 4: costPreference=costLinoleumTile;
+			if(budget-costPreference>=0)   //checks for affordability of Linoleum Tile
+			{
+				System.out.println("Linoleum Tile is affordable");
+				System.out.println("The floor will cost: $" + costPreference);
+				break;
+			}
+					default: System.out.println("Given the budget no flooring is affordable:(");  //if nothing if affordable 
+		}
+
+
+		input.close();
+
+	} //main
+
+		public static double windowAreaMethod(double windowWidth, double windowHeight)// method for window area
+		{
+			
+			double windowArea = (windowWidth*windowHeight);
+			return windowArea;
+		}// end windowAreaMethod
+		
+		public static double doorAreaMethod(double doorWidth, double doorHeight)//method for door area
+		{
+			
+			double doorArea = (doorWidth*doorHeight);
+			return doorArea;
+		}// end doorAreaMethod
+		
+		public static double bookshelfFloorAreaMethod(double bookshelfLength, double bookshelfWidth)//method for bookshelf floor areaa
+		{
+			
+			double bookshelfFloorArea = (bookshelfLength*bookshelfWidth);
+			return bookshelfFloorArea;
+		}// end bookshelfFloorAreaMethod
+		
+		public static double bookshelfWallAreaMethod(double bookshelfLength, double bookshelfHeight)//method for bookshelf wall area
+		{
+			
+			double bookshelfWallArea = (bookshelfLength*bookshelfHeight);
+			return bookshelfWallArea;
+		}// end bookshelfWallAreaMethod
+
+} //class
+
+RESULTS 1:
+12 12 12 3 2 10 3 5 3 5 0 1 8 10 2 1 0 255
+Total Wall Area: 446.0
+The walls will cost: $446.0
+Total Floor Area: 128.0
+Linoleum Tile is affordable
+The floor will cost: $128.0
+
+RESULTS 2:
+24 12 8 0 3 2 6 3 5 8 5 2 8 6 3 3 6 2 1.57 1 250
+Total Wall Area: 443.0
+The walls will cost: $695.51
+Total Floor Area: 258.0
+Given the budget no flooring is affordable:(
+
+RESULTS 3:
+12.75 11.25 12 1 1.95 10 2 2.5 5 6.8 7.2 1 8 6 3 .95 3 400 
+Total Wall Area: 447.03999999999996
+The walls will cost: $424.68799999999993
+Total Floor Area: 119.4375
+Carpet is affordable
+The floor will cost: $238.875

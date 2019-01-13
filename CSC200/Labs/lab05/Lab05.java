@@ -1,0 +1,53 @@
+/*
+ * Shahroz Imtiaz
+ * This program displays which animal of the Chinese zodiac you are.
+ */
+package lab05;
+
+import java.util.Scanner; //importing scanner
+
+public class Lab05
+{
+
+	public static void main(String[] args) 
+	{
+	int num;	
+	
+	Scanner year = new Scanner(System.in);  //creating scanner
+	
+	num = (year.nextInt() % 12); //determining what number the user is based on the year the were born
+	
+	switch(num)             
+	{
+		case 0: System.out.println("Monkey"); //if the num is 0 then this
+			break;
+		case 1: System.out.println("Rooster"); //if the num is 1 then this
+			break;
+		case 2: System.out.println("Dog"); //if the num is 2 then this
+			break;
+		case 3: System.out.println("Pig"); //if the num is 3 then this
+			break;
+		case 4: System.out.println("Rat"); //if the num is 4 then this
+			break;
+		case 5: System.out.println("Ox"); //if the num is 5 then this
+			break;
+		case 6: System.out.println("Tiger"); //if the num is 6 then this
+			break;
+		case 7: System.out.println("Rabbit"); //if the num is 7 then this
+			break;
+		case 8: System.out.println("Dragon"); //if the num is 8 then this
+			break;
+		case 9: System.out.println("Snake"); //if the num is 9 then this
+			break;
+		case 10: System.out.println("Horse"); //if the num is 10 then this
+			break;
+		case 11: System.out.println("Sheep"); //if the num is 11 then this
+			break;
+			
+			default: System.out.println("You're unique:)");	//if the num is none of the above then this
+	}
+	year.close(); //closing source leak
+
+	}//main
+	
+}//class

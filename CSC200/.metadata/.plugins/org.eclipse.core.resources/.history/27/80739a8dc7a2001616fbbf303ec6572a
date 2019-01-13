@@ -1,0 +1,153 @@
+package lab08;
+
+import java.util.Scanner;
+
+public class Lab08 {
+
+	public static void main(String[] args) 
+	{
+		double value1,value2,value3,value4;
+		
+		value1=0;
+		value2=0;
+		value3=0;
+		value4=0;
+		
+		Scanner input = new Scanner(System.in);
+		
+		
+		String data = input.nextLine();
+		
+		char a = data.charAt(0);
+		char b = data.charAt(1);
+		char c = data.charAt(2);
+		char d = data.charAt(3);
+		
+		switch(a)
+		{
+		case 0: value1 = 0;
+		case 1: value1 = 1 * Math.pow(16,3);
+		break;
+		case 2: value1 = 2 * Math.pow(16,3);
+		break;
+		case 3: value1 = 3 * Math.pow(16,3);
+		break;
+		case 4: value1 = 4 * Math.pow(16,3);
+		break;
+		case 5: value1 = 5 * Math.pow(16,3);
+		break;
+		case 6: value1 = 6 * Math.pow(16,3);
+		break;
+		case 7: value1 = 7 * Math.pow(16,3);
+		break;
+		case 8: value1 = 8 * Math.pow(16,3);
+		break;
+		case 9: value1 = 9 * Math.pow(16,3);
+		break;
+		case 'A': value1 = 10 * Math.pow(16,3);
+		break;
+		case 'B': value1 = 11 * Math.pow(16,3);
+		break;
+		case 'C': value1 = 12 * Math.pow(16,3);
+		case 'D': value1 = 13 * Math.pow(16,3);
+		case 'E': value1 = 14 * Math.pow(16,3);
+		case 'F': value1 = 15 * Math.pow(16,3);
+		}
+		switch(b)
+		{
+		case 0: value2 = 0;
+		case 1: value1 = 1 * Math.pow(16,3);
+		break;
+		case 2: value1 = 2 * Math.pow(16,3);
+		break;
+		case 3: value1 = 3 * Math.pow(16,3);
+		break;
+		case 4: value1 = 4 * Math.pow(16,3);
+		break;
+		case 5: value1 = 5 * Math.pow(16,3);
+		break;
+		case 6: value1 = 6 * Math.pow(16,3);
+		break;
+		case 7: value1 = 7 * Math.pow(16,3);
+		break;
+		case 8: value1 = 8 * Math.pow(16,3);
+		break;
+		case 9: value1 = 9 * Math.pow(16,3);
+		break;
+		case 'A': value1 = 10 * Math.pow(16,3);
+		break;
+		case 'B': value1 = 11 * Math.pow(16,3);
+		break;
+		case 'C': value1 = 12 * Math.pow(16,3);
+		case 'D': value1 = 13 * Math.pow(16,3);
+		case 'E': value1 = 14 * Math.pow(16,3);
+		case 'F': value1 = 15 * Math.pow(16,3);
+		}
+		switch(c)
+		{
+		case 0: value3 = 0;
+		case 1: value1 = 1 * Math.pow(16,3);
+		break;
+		case 2: value1 = 2 * Math.pow(16,3);
+		break;
+		case 3: value1 = 3 * Math.pow(16,3);
+		break;
+		case 4: value1 = 4 * Math.pow(16,3);
+		break;
+		case 5: value1 = 5 * Math.pow(16,3);
+		break;
+		case 6: value1 = 6 * Math.pow(16,3);
+		break;
+		case 7: value1 = 7 * Math.pow(16,3);
+		break;
+		case 8: value1 = 8 * Math.pow(16,3);
+		break;
+		case 9: value1 = 9 * Math.pow(16,3);
+		break;
+		case 'A': value1 = 10 * Math.pow(16,3);
+		break;
+		case 'B': value1 = 11 * Math.pow(16,3);
+		break;
+		case 'C': value1 = 12 * Math.pow(16,3);
+		case 'D': value1 = 13 * Math.pow(16,3);
+		case 'E': value1 = 14 * Math.pow(16,3);
+		case 'F': value1 = 15 * Math.pow(16,3);
+		}
+		switch(d)
+		{
+		case 0: value4 = 0;
+		case 1: value1 = 1 * Math.pow(16,3);
+		break;
+		case 2: value1 = 2 * Math.pow(16,3);
+		break;
+		case 3: value1 = 3 * Math.pow(16,3);
+		break;
+		case 4: value1 = 4 * Math.pow(16,3);
+		break;
+		case 5: value1 = 5 * Math.pow(16,3);
+		break;
+		case 6: value1 = 6 * Math.pow(16,3);
+		break;
+		case 7: value1 = 7 * Math.pow(16,3);
+		break;
+		case 8: value1 = 8 * Math.pow(16,3);
+		break;
+		case 9: value1 = 9 * Math.pow(16,3);
+		break;
+		case 'A': value1 = 10 * Math.pow(16,3);
+		break;
+		case 'B': value1 = 11 * Math.pow(16,3);
+		break;
+		case 'C': value1 = 12 * Math.pow(16,3);
+		case 'D': value1 = 13 * Math.pow(16,3);
+		case 'E': value1 = 14 * Math.pow(16,3);
+		case 'F': value1 = 15 * Math.pow(16,3);
+		}
+		
+		System.out.println(value1 + value2 + value3 + value4);
+		
+		
+		
+	}//main
+
+}//class

@@ -1,0 +1,112 @@
+/*  
+ * Pizza purchase 
+ * 
+ * costs of pizza - small=10; medium = 15; large = 18
+ * 
+ * each topping costs 3 more
+ * 
+ * if spend more that 20 then get a 10% discount on cost of pizza
+ * 
+ * delivery cost Va = 5 + .10 per mile
+ * 
+ * delivery cost md = 8 + .10 per mile 
+ * but customer gets additional 10% discount if total cost is over 30 and 
+ *                15% discount  if over 40
+ *                
+ * person will give the type of pizza, the number of toppings 
+ * 
+ * where they live and how many miles from pizza parlor.
+ */
+
+package lab06;
+import java.util.Scanner;
+public class Lab06
+{
+
+	public static void main(String[] args)
+	{
+		// define variables and initialize
+				double smallPizza=10, mediumPizza=15, largePizza=18;
+				double  miles=0, costOfPizza, costDelivery, totalCost;
+				int state=0, typePizza=0, numberToppings;//state =1 for va and 2 for md while 1=small, 2= medium, 3 = large pizza
+				Scanner input = new Scanner(System.in);
+			// get call and enter data from customer
+						System.out.println("enter size of pizza (1-3) and number of toppings");
+						typePizza = input.nextInt();
+						numberToppings = input.nextInt();
+						System.out.println("enter state (1-2) and miles to customer house");
+						state = input.nextInt();
+						miles = input.nextDouble();
+						
+			//  calculate the cost of the pizza
+						switch (typePizza){
+						case 1: costOfPizza=smallPizza;
+						break;
+						case 2: costOfPizza=mediumPizza;
+						break;
+						case 3: costOfPizza=largePizza;
+						break;
+						default:  
+						          costOfPizza=0;
+						          numberToppings=0;
+						
+						}  // end  switch typePizza
+				//now add in toppings
+						costOfPizza += numberToppings*3;
+						
+				// check to see if discount
+						
+			
+				
+						if(costOfPizza>20) // TOOK AWAY ";" AT THE END OF IF STATEMENT 				
+							{System.out.println("Cost of pizza over $20 = $" + costOfPizza); 
+							costOfPizza -= costOfPizza*.10;
+							System.out.println("   so get 10% discount.  Cost = $" + costOfPizza);
+							}
+				// Now calculate delivery charge
+						switch (state){
+						case 1: costDelivery = 5 + miles*.10;
+						break;
+						case 2: costDelivery = 8 + miles*.10;
+						break; //NEED TO INSERT A "BREAK" OR PROGRAM CONTINUES TO DEFAULT
+				
+						default:  
+						costDelivery=0;
+						}
+				//  calculate total cost but also check if error on data entry
+						if (costDelivery==0  || costOfPizza==0)
+							System.out.println("error in data entry  redo");
+						else 
+						{totalCost = costDelivery + costOfPizza;
+						
+				
+						
+						if (state== 2 && totalCost > 40)
+							{totalCost -= totalCost*.15; //if total cost is > 40 you take off an additional 15%(.15) not 40%(.40)
+							
+						//  round off double to just two decimal places rounding up if third place is 5 or greater
+							
+							totalCost = (int)((totalCost + .005)*100)/100.;
+							
+						System.out.println(" Cost Pizza= " + costOfPizza + " Delivery cost = " + costDelivery + 
+								   "  Get additional 15% discount so the total cost is $" + totalCost);}  //get additional 15% discount not 40%
+						else if (state== 2 && totalCost > 30)
+							{totalCost -= totalCost*.10;  //get additional 10%(.10) not 30%(.30)
+							
+		//  round off double to just two decimal places rounding up if third place is 5 or greater
+							
+							
+							totalCost = (int)((totalCost + .005)*100)/100.; //DIVIDE BY "100." TO CONVERT THE NUMBER TO A DOUBLE
+												
+						System.out.println(" Cost Pizza= " + costOfPizza + " Delivery cost = " + costDelivery + 
+								   "  Get 10% discount so the total cost is $" + totalCost);}  //get 10% discount not 30%
+						else
+							System.out.println(" Cost Pizza= " + costOfPizza + " Delivery cost = " + costDelivery + 
+									   " so the total cost is $" + totalCost);}
+						
+
+						
+		input.close();     //   closes scanner object that allows input
+			}  // end main
+
+}  // end class

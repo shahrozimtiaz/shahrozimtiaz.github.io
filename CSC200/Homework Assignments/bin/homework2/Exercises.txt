@@ -1,0 +1,30 @@
+1. 	What is y after the following switch statement?
+Y=-1 ,because there is no break in the switch statement  (I don't know if you intentionally forgot the ";" after the default statement in the switch statment. 
+														if you did it on purpose, then the answer is, the program will not run due to a syntax error.)
+
+2.  Assume x is 0. What is the output of the following statement?
+Output is, x equals 0
+
+3. 	Analyze the following two codes and indicate if the code is correct or there is a problem:
+Code 1:
+int number isn't declared or defined.
+
+Code 2:
+int number isn't declared or defined.
+
+4.  What is the output of the following switch statement?
+output is "a"
+
+5.  What is y after the following switch statement is executed?
+it depends on the original value of "y" because new "y" is equal to old "y" plus one.
+
+6. Which of the following code displays the area of a circle if the radius is positive.
+B,C,D would all display 
+
+7.	 If you enter input 9, show the output of the following code:
+i is 4
+9 is not prime
+
+
+
+

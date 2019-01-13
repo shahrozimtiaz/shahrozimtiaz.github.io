@@ -1,0 +1,96 @@
+/*
+ * Shahroz Imtiaz
+ * This program tells the user the wall area, floor area, the cost to paint the walls, the cost to put in carpet in a room.
+ */
+
+package homework1;
+
+import java.util.Scanner; //Importing scanner
+
+public class Renovation {
+
+	public static void main(String[] args) 
+	{
+		Scanner length_s = new Scanner(System.in);
+		Scanner width_s = new Scanner(System.in);
+		Scanner height_s = new Scanner(System.in);
+		Scanner doorWidth_s = new Scanner(System.in);
+		Scanner doorHeight_s = new Scanner(System.in);             //Creating Scanners
+		Scanner window1Width_s = new Scanner(System.in);           //"_s" lets me remember it's a scanner
+		Scanner window1Height_s = new Scanner(System.in);
+		Scanner window2Width_s = new Scanner(System.in);
+		Scanner window2Height_s = new Scanner(System.in);
+		Scanner shelfWidth_s = new Scanner(System.in);
+		Scanner shelfHeight_s = new Scanner(System.in);
+		Scanner shelfDepth_s = new Scanner(System.in);
+		Scanner costPaint_s = new Scanner(System.in);
+		Scanner costCarpet_s = new Scanner(System.in);
+
+		//Declaring variables 
+		double wallArea, floorArea,costPaint,costCarpet,length,width,height,doorHeight,doorWidth,window1Height,window2Height,window1Width,window2Width,shelfHeight,shelfWidth,shelfDepth;
+		
+		//Defining variables
+		length = length_s.nextDouble();
+		width = width_s.nextDouble();
+		height = height_s.nextDouble();
+		doorHeight = doorHeight_s.nextDouble();
+		doorWidth = doorWidth_s.nextDouble();
+		window1Height = window1Height_s.nextDouble();  
+		window2Height = window2Height_s.nextDouble();
+		window1Width = window1Width_s.nextDouble();
+		window2Width = window2Width_s.nextDouble();
+		shelfHeight = shelfHeight_s.nextDouble();
+		shelfWidth = shelfWidth_s.nextDouble();
+		shelfDepth = shelfDepth_s.nextDouble();
+		costPaint = costPaint_s.nextDouble();
+		costCarpet = costCarpet_s.nextDouble();
+		
+		floorArea = (length*width)-(shelfDepth*shelfWidth); //calculates final floor area
+		wallArea = (((height * width)*2) + ((height * length)*2)) - ((window1Height*window1Width)+(window2Height*window2Width)+(doorHeight*doorWidth)+(shelfHeight*shelfWidth)); //calculates final wall area
+
+
+		System.out.println("Total Floor Area = " + floorArea + " sq.ft." ); //prints out final floor area
+		System.out.println("Total Wall Area = " + wallArea + " sq.ft.");  //prints out final wall area
+		System.out.println("Cost of painting the walls = " + "$" + (costPaint*wallArea)); //prints out the cost of painting the wall
+		System.out.println("Cost of putting carpet in = " + "$" + (costCarpet*floorArea)); //prints out the cost of putting carpet in
+		
+		length_s.close();
+		width_s.close();
+		height_s.close();
+		doorWidth_s.close();
+		doorHeight_s.close();
+		window1Width_s.close();
+		window1Height_s.close();  //Closing source leak 
+		window2Width_s.close();
+		window2Height_s.close();
+		shelfWidth_s.close();
+		shelfHeight_s.close();
+		shelfDepth_s.close();
+		costPaint_s.close();
+		costCarpet_s.close();
+
+	} //main
+
+} //class
+
+
+Results #1:
+
+Total Floor Area = 124.0 sq.ft.
+Total Wall Area = 442.0 sq.ft.
+Cost of painting the walls = $442.0
+Cost of putting carpet in = $248.0
+
+Results #2:
+
+Total Floor Area = 270.0 sq.ft.
+Total Wall Area = 467.0 sq.ft.
+Cost of painting the walls = $733.19
+Cost of putting carpet in = $780.3000000000001
+
+Results #3:
+
+Total Floor Area = 125.4375 sq.ft.
+Total Wall Area = 455.5 sq.ft.
+Cost of painting the walls = $432.72499999999997
+Cost of putting carpet in = $156.796875

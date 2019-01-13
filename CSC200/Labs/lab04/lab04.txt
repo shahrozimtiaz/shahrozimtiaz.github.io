@@ -1,0 +1,59 @@
+/*
+ * Shahroz Imtiaz
+ * This program checks to see if the user is able to correctly do simple subtraction.
+ */
+package lab04;
+
+import java.util.Scanner;  //importing scanner
+
+public class Lab04 {
+
+	public static void main(String[] args) 
+	{
+		
+		int num1,num2,answer;   // declaring variables 
+		
+		num1 = (int)(Math.random()*10); //randomly defining first number
+		num2 = (int)(Math.random()*10); //randomly defining second number
+		
+		if(num1>=num2) //checks to make sure the answer will be positive 
+		{
+			System.out.println("What is " + num1 + " - " + num2 + " =");  //asks question 
+			Scanner getAnswer = new Scanner(System.in);
+			answer = getAnswer.nextInt();  //grabs the user's answer
+			getAnswer.close();
+			
+			if(answer == (num1-num2))  //checks to see if the user is correct 
+			{
+				System.out.println("CORRECT!");   //if user is correct
+			}
+			else
+			{
+				System.out.println("Wrong. " + num1 + " - " + num2 + " = " + (num1-num2)); //if user is wrong
+			}
+		}
+		else  //if the answer will result in a negative number, flip num1 and num2
+		{
+			System.out.println("What is " + num2 + " - " + num1 + " ="); //asks question
+			Scanner getAnswer = new Scanner(System.in);
+			answer = getAnswer.nextInt();  //grabs user's answer
+			getAnswer.close();
+			
+			if(answer == (num2-num1)) //compare user's answer with real answer
+			{
+				System.out.println("CORRECT!");  //if user is correct
+			}
+			else
+			{
+				System.out.println("Wrong. " + num2 + " - " + num1 + " = " + (num2-num1)); //if user is wrong
+			}
+		}
+	}//main
+
+}//class
+
+
+RESULTS:
+What is 7 - 5 =
+2
+CORRECT!
