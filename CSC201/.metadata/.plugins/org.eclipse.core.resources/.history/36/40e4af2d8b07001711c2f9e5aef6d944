@@ -1,0 +1,33 @@
+package practice;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Practice extends JPanel
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Enter");
+		Scanner scan = new Scanner(System.in);
+		
+		int x = scan.nextInt();
+		
+		if(x>5)
+		{
+			System.out.println("A");
+		}
+		if(x<10)
+		{
+			System.out.println("B");
+		}
+		else
+		{
+			System.out.println("C");
+		}
+
+	}
+}

@@ -1,0 +1,29 @@
+package practice;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Practice 
+{
+	public static void main(String[] args) 
+	{
+		int sum = 0,I,J;
+		I=1;
+		while(I * I <= 16)
+		{
+			J = I;
+			while(J * J <= 64)
+			{
+				sum = I + J;
+				System.out.println("I = " + I + " J = " + J + " sum = " + sum);
+				J = J*2;
+			}
+			I++;
+		}
+
+	}
+}

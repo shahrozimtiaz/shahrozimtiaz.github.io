@@ -1,0 +1,21 @@
+package project1;
+
+import java.util.Scanner;
+
+public class Bottle 
+{
+	private int bottle1;
+	
+	
+	public int read()
+	{
+		Scanner scan = new Scanner(System.in);
+		bottle1 = scan.nextInt();
+		System.out.println("wtf");
+		return bottle1;
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,17 @@
+package practice;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Practice extends JPanel
+{
+	public static void main(String[] args) 
+	{
+		System.out.print("hello"+"\n"+"world");
+
+	}
+}

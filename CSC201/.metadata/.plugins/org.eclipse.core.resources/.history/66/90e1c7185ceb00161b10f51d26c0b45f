@@ -1,0 +1,123 @@
+package project2;
+
+import java.util.Scanner;
+
+public class TemperatureDemoWithArrays {
+
+	public static void main(String[] args)
+	{
+		Temperature average;
+		System.out.println("You will be asked to fill 3 randomly sized arrays.");
+		Temperature[] temperatureArrayOne;
+		Temperature[] temperatureArrayTwo;
+		Temperature[] temperatureArrayThree;
+		
+		
+		
+		temperatureArrayOne = new Temperature[getRandomArraySize()];
+		System.out.println(temperatureArrayOne.length);//
+		
+		readTemperatureArray(temperatureArrayOne);
+		System.out.println("The values of temperature array one are ");
+		printTemperatureArray(temperatureArrayOne);
+		
+		average = getAverage(temperatureArrayOne);
+		System.out.println("The average of temperature array one is " + average);
+
+		temperatureArrayTwo = new Temperature[getRandomArraySize()];
+		readTemperatureArray(temperatureArrayTwo);
+		System.out.println("The values of temperature array two are ");
+		printTemperatureArray(temperatureArrayTwo);
+		average = getAverage(temperatureArrayTwo);
+		System.out.println("The average of temperature array two is " + average);
+
+		temperatureArrayThree = new Temperature[getRandomArraySize()];
+		readTemperatureArray(temperatureArrayThree);
+		System.out.println("The values of temperature array three are ");
+		printTemperatureArray(temperatureArrayThree);
+		average = getAverage(temperatureArrayThree);
+		System.out.println("The average of temperature array three is " + average);
+
+		Temperature[] largest = getLargestArray(temperatureArrayOne, temperatureArrayTwo, temperatureArrayThree);
+		
+		System.out.println(largest);
+		/*
+		Temperature[] arrayWithLargestValues1;
+		if(temperatureArrayOne == largest)
+			arrayWithLargestValues1 = createArrayWithLargestValues(largest,temperatureArrayTwo, temperatureArrayThree);
+		else if(temperatureArrayTwo == largest)
+			arrayWithLargestValues1 = createArrayWithLargestValues(largest,temperatureArrayOne, temperatureArrayThree);
+		else// fractionArrayThree is largest
+			arrayWithLargestValues1 = createArrayWithLargestValues(largest,temperatureArrayOne, temperatureArrayTwo);
+		System.out.println("\nHere are the temperatures in the three arrays:");
+		printTemperatureArray(temperatureArrayOne);
+		printTemperatureArray(temperatureArrayTwo);
+		printTemperatureArray(temperatureArrayThree);
+		System.out.println("\nAn array with the largest values taken from the\n"+ "3 arrays has " + arrayWithLargestValues1.length + " elements.");
+		System.out.println("This solution new the largest array of the three arrays:");
+		printTemperatureArray(arrayWithLargestValues1);
+
+		int sizeOfLargestArray = getSizezOfLargestArray(temperatureArrayOne, temperatureArrayTwo, temperatureArrayThree);
+		Temperature[] arrayWithLargestValues = createArrayWithLargestValues(sizeOfLargestArray, 
+				temperatureArrayOne,temperatureArrayTwo, temperatureArrayThree);
+		System.out.println("\nAn array with the largest values taken from the\n"+ "3 arrays has " + arrayWithLargestValues.length + " elements.");
+		System.out.println("This solution new the largest size of the three arrays:");
+		printTemperatureArray(arrayWithLargestValues);
+		*/
+	}//Main 
+	
+	private static int getRandomArraySize()
+	{
+		
+		return (int)(Math.random()*5 + 1); 
+		
+	}
+	private static void readTemperatureArray(Temperature[] array)
+	{
+		Temperature t1;
+		for(int x = 0; x < array.length; x++)
+		{
+			t1 = new Temperature();
+			t1.read();
+			array[x] = t1;
+		}
+	}
+	private static void printTemperatureArray(Temperature[] array)
+	{
+
+		for(int x =0; x<array.length;x++)
+		{
+			System.out.print(array[x]);
+			if(x<array.length-1)
+			{
+				System.out.print(", ");
+			}
+		}
+		System.out.println();
+	}
+	private static Temperature getAverage(Temperature[] array)
+	{
+		
+		Temperature average = new Temperature();
+		for(int i = 0; i< array.length; i++)
+		{
+			average= average.add(array[i]);
+		}
+		average = average.divide(array.length);
+		return average;
+	}
+	private static Temperature[] getLargestArray(Temperature[] array1, Temperature[] array2, Temperature[] array3)
+	{
+		if(array1.length>=array2.length && array1.length>=array2.length)
+		{
+			return array1;
+		}
+		else if(array2.length>=array1.length && array2.length>=array3.length)
+		{
+			return array2;
+		}
+		else return array3;
+	}
+
+
+}//Class

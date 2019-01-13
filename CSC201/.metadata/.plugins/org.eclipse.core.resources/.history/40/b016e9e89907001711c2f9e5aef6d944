@@ -1,0 +1,37 @@
+package practice;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Practice 
+{
+	public static void main(String[] args) 
+	{
+		
+		int top = 4, n = -1;
+		while( n<=top)
+		{
+			switch(n)
+			{
+			case 1: 
+				System.out.println("One.");
+				break;
+			case 3:
+				System.out.println("Three.");
+				break;
+				case 4:
+				System.out.println("Four.");
+				break;
+			default:
+				System.out.println("Default case.");
+				break;
+			}
+			n++;
+		}
+
+	}
+}

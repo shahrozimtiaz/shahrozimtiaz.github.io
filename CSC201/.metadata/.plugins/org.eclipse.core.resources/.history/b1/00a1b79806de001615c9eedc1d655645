@@ -1,0 +1,20 @@
+package project1;
+
+import java.util.Scanner;
+
+public class Bottle 
+{
+	
+	
+	public int read()
+	{
+		Scanner scan = new Scanner(System.in);
+		int bottleValue = scan.nextInt();
+		scan.close();
+		return bottleValue;
+		
+	}
+	
+	
+
+}

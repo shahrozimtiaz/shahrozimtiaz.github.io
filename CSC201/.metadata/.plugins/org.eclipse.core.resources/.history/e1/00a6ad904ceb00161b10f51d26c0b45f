@@ -1,0 +1,16 @@
+package project2;
+
+public class Practice {
+
+	public static void main(String[] args)
+	{
+		int[] x = new int[4];
+		x[0] = 7;
+		System.out.println(x[0]);
+		
+
+
+	
+	}
+
+}

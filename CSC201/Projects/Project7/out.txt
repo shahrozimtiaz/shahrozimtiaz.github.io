@@ -1,0 +1,43 @@
+Name: Jim Jackson
+Hours Worked: 55.5
+Hourly Rate: $14.50
+	Gross Wages: $917.13
+					 Current     Yr to Date
+	Federal:         $261.64	 $6,271.64
+	State:           $91.71	 	$2,254.71
+	Local:           $2.50	 	$517.50
+	Total Deductions:         $355.85
+	Net Pay:                  $261.64
+
+Name: Cary Jones
+Hours Worked: 55.0
+Hourly Rate: $13.00
+	Gross Wages: $812.50
+					 Current     Yr to Date
+	Federal:         $234.75	 $4,234.75
+	State:           $81.25	 	$2,081.25
+	Local:           $9.34	 	$509.34
+	Total Deductions:         $325.35
+	Net Pay:                  $234.75
+
+Name: Bert Johnson
+Hours Worked: 24.0
+Hourly Rate: $10.00
+	Gross Wages: $240.00
+					 Current     Yr to Date
+	Federal:         $22.50	 $2,422.50
+	State:           $12.00	 	$1,012.00
+	Local:           $2.76	 	$302.76
+	Total Deductions:         $37.26
+	Net Pay:                  $22.50
+
+            The Dooflingy Company
+				Weekly Summary
+			Current      Year to date
+Federal:	 $518.89 	$12,928.89
+State:	 	$184.96	 $5,347.96
+Local:	 	$14.60 		$1,329.60
+Total Deductions: $718.46	$19,606.46
+
+Gross Wages: $1,969.64
+Net Pay: $1,251.18

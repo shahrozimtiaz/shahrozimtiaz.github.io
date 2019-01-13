@@ -1,0 +1,28 @@
+package project1;
+
+import java.util.Scanner;
+
+public class Bottle 
+{
+	Scanner scan = new Scanner(System.in);
+	
+	public String read()
+	{
+		String value = Integer.toString(scan.nextInt());
+		return value;
+		
+	}
+	public int set(int a)
+	{
+		int value = a;
+		return value;
+	}
+	public int add(int other)
+	{
+		int valueAdd = this.add(other);
+		return valueAdd;
+		
+	}
+	
+
+}

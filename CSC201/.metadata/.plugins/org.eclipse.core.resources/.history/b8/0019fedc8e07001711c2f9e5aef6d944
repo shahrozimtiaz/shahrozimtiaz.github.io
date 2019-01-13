@@ -1,0 +1,24 @@
+package practice;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Practice 
+{
+	public static void main(String[] args) 
+	{
+		int count = 100;
+		int answer = 0;
+		int x = 1;
+		while(x<=count)
+		{
+			answer += x;
+			x++;
+		}
+		System.out.println(answer);
+	}
+}

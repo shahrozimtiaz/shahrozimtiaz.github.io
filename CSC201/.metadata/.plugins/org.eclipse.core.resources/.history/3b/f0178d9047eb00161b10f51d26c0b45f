@@ -1,0 +1,29 @@
+package project2;
+
+public class Practice {
+
+	public static void main(String[] args)
+	{
+		public Temperature toFahrenheit()
+		{	
+			double x; 
+			
+			switch(this.scale)
+			{
+			
+			case 'C': 
+				x = 7;
+			
+			
+			case 'K':
+				x=4;
+				
+			}
+			 return x + 3;
+		}
+
+
+	
+	}
+
+}

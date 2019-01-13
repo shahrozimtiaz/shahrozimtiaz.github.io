@@ -1,0 +1,21 @@
+package practice;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Practice 
+{
+	public static void main(String[] args) 
+	{
+		
+		int n, sum = 0;
+		for(n = 1; n<10; n++)
+			sum = sum + n;
+			System.out.println(sum);
+
+	}
+}
