@@ -1,0 +1,75 @@
+import java.util.*;
+
+///////////////////////////////////////////////////////////////
+//
+// TODO: Complete Graph Code Below
+//
+///////////////////////////////////////////////////////////////
+
+public class Graph<T>{
+	//Need Structure to Hold verts, edges (Must complete methods)
+	public ArrayList<T> verts = new ArrayList<T>(); 
+	
+	public int[][] edges = new int[36][36];
+
+	
+	//Precondition: data will become a new vertex...data is not null (DONE)
+	//Postcondition: data will get added to the graph with no edges in or out.
+	public void addVertex(T data){
+		if(data == null) {
+			
+		}
+		else {
+		
+		verts.add(data);	
+	
+		}
+		
+	}
+	
+	//Precondition: v1 and v2 are vertices of the graph
+	//Postcondition: will construct an edge between v1 and v2, will be undirected.
+	public void addEdge(T v1, T v2){
+		if(verts.contains(v1) && verts.contains(v2)) {
+			int index1 = verts.indexOf(v1);	
+			int index2 = verts.indexOf(v2);	
+
+			edges[index1][index2]=1;
+			edges[index2][index1]=1;
+
+		}
+	}
+
+	//Precondition: source and sink are vertices of the graph
+	//Postcondition: returns an iteratable list such that following the path from 0 -> n will take us from the source to the sink. The source and the sink may/may not be in the sequence. 
+	public ArrayList<T> getShortestPath(T source, T sink){ 
+		return new ArrayList();
+	}
+	
+	//Precondition: v1 and v2 are vertices of the graph
+	//Postcondition: returns true if there is an edge from v1 to v2, false otherwise
+	public boolean isAdjacent(T v1, T v2){
+		if(verts.contains(v1) && verts.contains(v2)) {
+		int index1 = verts.indexOf(v1);
+		int index2 = verts.indexOf(v2);
+		
+		if(edges[index1][index2]==1) {
+			return true;
+		}
+		else return false;
+		}
+		else return false;
+	} 
+	
+	public void testEdgesMatrix() {
+		for(int i = 0; i<verts.size(); i++)
+		{
+		    for(int j = 0; j<verts.size(); j++)
+		    {
+		        System.out.print(edges[i][j]);
+		    }
+		    System.out.println();
+		}
+	}
+
+}

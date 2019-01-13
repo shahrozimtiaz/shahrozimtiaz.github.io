@@ -1,0 +1,27 @@
+import java.util.*;
+public class TestProdCons {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter two arguements for ProducerThreads & ConsumerThreads respectively");
+		int a = input.nextInt();
+		int b = input.nextInt();
+		
+		SynchQueue queue = new SynchQueue();
+		
+		for(int i=1;i<=a;i++) {
+			new ProduceThread(i,queue).start();
+			System.out.println("Producer " + i + " started");
+		}
+		for(int i=1;i<=b;i++) {
+			new ConsumerThread(i,queue).start();
+			System.out.println("consumer " + i + " started");
+		}
+		main.sleep(5000);
+		
+		queue.shutDown();
+		System.out.println("Main program exiting after joining threads");
+	}
+
+}

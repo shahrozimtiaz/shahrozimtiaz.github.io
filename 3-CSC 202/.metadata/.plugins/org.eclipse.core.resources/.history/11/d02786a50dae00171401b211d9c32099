@@ -1,0 +1,45 @@
+
+public class SynchQueue {
+	
+private int[] data;
+private int last;
+private boolean done;
+
+public SynchQueue() {
+	done = false;
+	data = new int[10];
+	last = -1;
+}
+public int size() {
+	return last+1;
+}
+public boolean isFull() {
+	if(size() == data.length) {
+		return true;
+	}
+	return false;
+}
+public boolean enqueue(int datum) {
+	if(isFull()) {
+		return false;
+	}
+	data[++last] = datum;
+	return true;
+}
+public int dequeue() {
+	if(last == -1) {
+		return -1;
+	}
+	int temp = data[0];
+	for(int i=1; i<=last; i++)
+		data[i-1] = data[i];
+	last--;
+	return temp;	
+}
+public boolean isDone() {
+	return done;
+}
+public void shutDown() {
+	done = true;
+}
+}//class

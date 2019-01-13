@@ -1,0 +1,23 @@
+
+public class ConsumerThread extends Thread {
+	
+private int index;
+private SynchQueue sq;
+
+public ConsumerThread(int ind, SynchQueue queue) {
+	this.index = ind;
+	this.sq = queue;
+}
+public void run() {
+	while(!sq.isDone()) {
+	int rt = sq.dequeue();
+	int frt = factorial(rt);
+	this.sleep((int)Math.random() *1000);
+	}
+}
+public static int factorial(int x) {
+	if(x<=0) return 1;
+	x = x * factorial(x-1);
+	return x;
+}
+}//class

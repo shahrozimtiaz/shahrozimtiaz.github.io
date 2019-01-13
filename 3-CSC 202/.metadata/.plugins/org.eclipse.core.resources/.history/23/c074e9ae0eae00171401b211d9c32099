@@ -1,0 +1,34 @@
+import java.util.*;
+public class TestProdCons extends Thread {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter two arguements for ProducerThreads & ConsumerThreads respectively");
+		int a = input.nextInt();
+		int b = input.nextInt();
+		
+		SynchQueue queue = new SynchQueue();
+		
+		for(int i=1;i<=a;i++) {
+			System.out.println("Producer " + i + " started");
+			new ProduceThread(i,queue).start();
+			
+		}
+		for(int i=1;i<=b;i++) {
+			System.out.println("consumer " + i + " started");
+			new ConsumerThread(i,queue).start();
+		}
+		
+		try{
+			sleep(5);
+		}catch(InterruptedException e){
+			System.out.println(e.getMessage());
+			}
+		
+		queue.shutDown();
+		
+		System.out.println("Main program exiting after joining threads");
+	}
+
+}

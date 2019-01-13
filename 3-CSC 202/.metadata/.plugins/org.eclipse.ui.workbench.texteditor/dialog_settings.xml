@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="isRegEx"/>
+		<item value="int" key="selection"/>
+		<item value="true" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="T"/>
+			<item value="item"/>
+			<item value="BSTNode"/>
+			<item value="BST"/>
+			<item value="getMaxNodeRec"/>
+			<item value="size()-1"/>
+			<item value="toString"/>
+			<item value="size\(\)"/>
+			<item value="size"/>
+			<item value="Red7CardSet"/>
+			<item value="Red7CardSetBonus"/>
+			<item value="getSize\(\)"/>
+			<item value="getSize()"/>
+			<item value="Size"/>
+			<item value="size()"/>
+		</list>
+		<list key="replacehistory">
+			<item value="int"/>
+			<item value="TreeNode"/>
+			<item value="Node"/>
+			<item value="size()"/>
+			<item value="size()-1"/>
+			<item value="Red7CardSetBonus"/>
+			<item value="Red7CardSet"/>
+			<item value="getSize()"/>
+			<item value="Size()"/>
+			<item value="customArrayList"/>
+			<item value=""/>
+			<item value="charNumName"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="284" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="391" key="DIALOG_HEIGHT"/>
+		<item value="443" key="DIALOG_X_ORIGIN"/>
+		<item value="144" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

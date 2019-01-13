@@ -1,0 +1,17 @@
+
+public class ProduceThread extends Thread {
+	
+private int index;
+private SynchQueue sq;
+
+public ProduceThread(int ind, SynchQueue queue) {
+	this.index = ind;
+	this.sq = queue;
+}
+public void run() {
+	while(!sq.isDone()) {
+	sq.enqueue((int)(Math.random()*10+1));
+	this.sleep((int)Math.random() *1000);
+	}
+}
+}//class
