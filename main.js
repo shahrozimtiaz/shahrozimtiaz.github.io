@@ -1,7 +1,6 @@
 var password = prompt("What is the password?");
-
 while(true){
-	if(password.equalsIgnoreCase("p1")){
+	if(password.toLowerCase() == "p1"){
 		break;
 	}
 	else{
