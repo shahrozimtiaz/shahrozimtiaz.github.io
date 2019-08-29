@@ -1,9 +1,11 @@
+//Shahroz Imtiaz
+//1/10/2019
 window.onload=function() {
 	canv=document.getElementById("gc");
 	ctx=canv.getContext("2d");
-	ctx.fillStyle="black";
-	ctx.fillRect(0,0,canv.width,canv.height);
 	document.addEventListener("keydown",keyPush);
+	image = new Image("apple.jpg");
+	image.src="apple.jpg";
 	timer = setInterval(game,100);
 }
 food = [Math.floor(Math.random()*20)*20, Math.floor(Math.random()*20)*20];
@@ -28,7 +30,7 @@ function game(){
 	ctx.font = "14px Georgia";
 	ctx.fillText("Shahroz Imtiaz ",285,392);
 	ctx.fillStyle="red";
-	ctx.fillRect(food[0],food[1],20,20);
+	ctx.drawImage(image, food[0],food[1],20,20);
 	if(snake[0][0]>380 || snake[0][0]<0 || snake[0][1]>380 || snake[0][1]<0 ){
 		clearInterval(timer);
 		alert("Game Over");
@@ -42,7 +44,7 @@ function game(){
 		food = [Math.floor(Math.random()*20)*20, Math.floor(Math.random()*20)*20];
 	}
 
-	if(prevKey==37){ //left->up->right->down
+	if(dir=="left"){ //left->up->right->down
 		var earse = snake.pop();
 		ctx.fillStyle="black";
 		ctx.fillRect(earse[0],earse[1], 20, 20);
@@ -50,7 +52,7 @@ function game(){
 		prevKey=37;
 		dir="left";
 	}
-	else if(prevKey==38){
+	else if(dir=="up"){
 		var earse = snake.pop();
 		ctx.fillStyle="black";
 		ctx.fillRect(earse[0],earse[1], 20, 20);
@@ -58,21 +60,21 @@ function game(){
 		prevKey=38;
 		dir="up";
 	}
-	else if(prevKey==39){
+	else if(dir=="right"){
 		var earse = snake.pop();
 		ctx.fillStyle="black";
 		ctx.fillRect(earse[0],earse[1], 20, 20);
 		snake.unshift([snake[0][0]+20, snake[0][1]]);
 		prevKey=39;
-		dir="right"
+		dir="right";
 	}
-	else if(prevKey==40){
+	else if(dir=="down"){
 		var earse = snake.pop();
 		ctx.fillStyle="black";
 		ctx.fillRect(earse[0],earse[1], 20, 20);
 		snake.unshift([snake[0][0], snake[0][1]+20]);
 		prevKey=40;
-		dir="down"
+		dir="down";
 	}
 	ctx.fillStyle="lime";
 	for(var i=0;i<snake.length;i++){
@@ -81,42 +83,17 @@ function game(){
 	eyesTongue(dir);
 }
 function keyPush(event){
-	if(event.KeyCode==prevKey){
-
+	if(event.keyCode==37){ //left->up->right->down
+		dir="left";
 	}
-	else{
-		if(event.keyCode==37){ //left->up->right->down
-			var earse = snake.pop();
-			ctx.fillStyle="black";
-			ctx.fillRect(earse[0],earse[1], 20, 20);
-			snake.unshift([snake[0][0]-20, snake[0][1]]);
-			prevKey=37;
-			dir="left";
-		}
-		else if(event.keyCode==38){
-			var earse = snake.pop();
-			ctx.fillStyle="black";
-			ctx.fillRect(earse[0],earse[1], 20, 20);
-			snake.unshift([snake[0][0], snake[0][1]-20]);
-			prevKey=38;
-			dir="up";
-		}
-		else if(event.keyCode==39){
-			var earse = snake.pop();
-			ctx.fillStyle="black";
-			ctx.fillRect(earse[0],earse[1], 20, 20);
-			snake.unshift([snake[0][0]+20, snake[0][1]]);
-			prevKey=39;
-			dir="right";
-		}
-		else if(event.keyCode==40){
-			var earse = snake.pop();
-			ctx.fillStyle="black";
-			ctx.fillRect(earse[0],earse[1], 20, 20);
-			snake.unshift([snake[0][0], snake[0][1]+20]);
-			prevKey=40;
-			dir="down";
-		}
+	else if(event.keyCode==38){
+		dir="up";
+	}
+	else if(event.keyCode==39){
+		dir="right";
+	}
+	else if(event.keyCode==40){
+		dir="down";
 	}
 }
 function eyesTongue(dir){
